@@ -16,9 +16,9 @@ public class KlantRepository {
 
     List<Klant> findByStukNaam(String stukNaam) {
         var sql = """
-                select id, familienaam, voornaam, straatnummer, postcode, gemeente
+                select id, familienaam, voornaam, straatNummer, postcode, gemeente
                 from klanten
-                where voornaam or familienaam like ?
+                where familienaam like ?
                 order by familienaam, voornaam
                 """;
         return jdbcClient.sql(sql)
