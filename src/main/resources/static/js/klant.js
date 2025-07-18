@@ -17,8 +17,10 @@ async function findByStukNaam(stukNaam) {
         for (const klant of klanten) {
             const tr = klantenBody.insertRow();
             const hyperlink = document.createElement("a");
-            hyperlink.href = "javascript:void(0)";
+            hyperlink.href = "bevestig.html";
             hyperlink.textContent = klant.familienaam + " " + klant.voornaam;
+            hyperlink.onclick = () =>
+                sessionStorage.setItem("klant", JSON.stringify(klant));
             tr.insertCell().appendChild(hyperlink);
             tr.insertCell().textContent = klant.straatNummer;
             tr.insertCell().textContent = klant.postcode;

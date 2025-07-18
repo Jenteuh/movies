@@ -46,7 +46,7 @@ public class Film {
 
     public void reserveer() {
         if ((voorraad - gereserveerd) < 1) {
-            throw new OnvoldoendeVoorraadException();
+            throw new OnvoldoendeVoorraadException(this.getTitel());
         }
         gereserveerd += 1;
     }
