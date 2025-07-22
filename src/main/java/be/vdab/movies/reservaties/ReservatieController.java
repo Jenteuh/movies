@@ -17,9 +17,7 @@ public class ReservatieController {
     }
 
     @PostMapping("reservaties")
-    void reserveer(@RequestBody @Valid List<NieuweReservatie> nieuweReservaties) {
-        for ( NieuweReservatie nieuweReservatie : nieuweReservaties)
-            reservatieService.create(nieuweReservatie);
+    void reserveer(@RequestBody @Valid NieuweReservatie nieuweReservatie) {
+        reservatieService.create(nieuweReservatie);
     }
-
 }

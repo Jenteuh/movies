@@ -1,6 +1,4 @@
-[
-  {
-    "klantId": 1,
-    "filmId": 0
-  }
-]
+{
+  "klantId": 1,
+  "filmId": 0
+}

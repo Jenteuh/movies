@@ -16,11 +16,8 @@ import org.springframework.test.web.servlet.assertj.MockMvcTester;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.nio.charset.StandardCharsets;
-import java.nio.file.FileAlreadyExistsException;
-import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.assertj.core.api.Assertions.assertThatExceptionOfType;
 
 @SpringBootTest
 @Transactional
@@ -56,13 +53,11 @@ public class ReservatieControllerTest {
                 .uri("/reservaties")
                 .contentType(MediaType.APPLICATION_JSON)
                 .content("""
-                        [
                           {
                             "klantId":""" + idVanTestKlant() + """
                             ,
                             "filmId":""" + idVanTestFilm() + """
                           }
-                        ]
                         """
                 );
         assertThat(response).hasStatusOk();
@@ -91,13 +86,11 @@ public class ReservatieControllerTest {
                 .uri("/reservaties")
                 .contentType(MediaType.APPLICATION_JSON)
                 .content("""
-                        [
                           {
                             "klantId":""" + idVanTestKlant() + """
                             ,
                             "filmId":""" + Long.MAX_VALUE + """
                           }
-                        ]
                         """
                 );
         assertThat(response).hasStatus(HttpStatus.NOT_FOUND);
@@ -109,13 +102,11 @@ public class ReservatieControllerTest {
                 .uri("/reservaties")
                 .contentType(MediaType.APPLICATION_JSON)
                 .content("""
-                        [
                           {
                             "klantId":""" + Long.MAX_VALUE + """
                             ,
                             "filmId":""" + idVanTestFilm() + """
                           }
-                        ]
                         """
                 );
         assertThat(response).hasStatus(HttpStatus.NOT_FOUND);

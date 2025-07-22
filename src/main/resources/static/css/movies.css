@@ -120,3 +120,11 @@ li {
     display: inline;
     margin-right: 1em;
 }
+
+.onderElkaar {
+    display: block;
+}
+
+p {
+    display: inline-block;
+}

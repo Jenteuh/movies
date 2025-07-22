@@ -8,8 +8,10 @@
 </head>
 <body>
 <h1>Klant</h1>
-<label>Woord:
-    <input id="stukNaam" autofocus>
+<label>
+    Woord:
+    <span id="verplicht" class="fout" hidden>Verplicht</span>
+    <input id="stukNaam" required autofocus>
 </label>
 <button id="zoek">Zoek</button>
 <table id="klantenTable" hidden>

@@ -1,9 +1,13 @@
 "use strict";
 import {byId, toon, verberg} from "./util.js";
 byId("zoek").onclick = async () => {
-    verberg("klantenTable", "storing");
+    verberg("klantenTable");
     const stukNaamInput = byId("stukNaam");
-    findByStukNaam(stukNaamInput.value);
+    if (!stukNaamInput.checkValidity()) {
+        toon("verplicht");
+    } else {
+        findByStukNaam(stukNaamInput.value);
+    }
 };
 
 async function findByStukNaam(stukNaam) {
